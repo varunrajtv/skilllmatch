@@ -10,7 +10,7 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #000; /* Fallback for video */
+      background: linear-gradient(135deg, #341874, #512da8);
       color: #fff;
       display: flex;
       justify-content: center;
@@ -28,47 +28,26 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.3);
+      filter: brightness(0.25);
     }
 
     /* Container styles */
     .container {
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(81, 45, 168, 0.9); /* Transparent purple box */
       width: 100%;
       max-width: 400px;
       border-radius: 10px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
       overflow: hidden;
       padding: 30px 20px;
       text-align: center;
-    }
-
-    /* Back icon */
-    .back-icon {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 20px;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      transition: color 0.3s;
-    }
-
-    .back-icon:hover {
-      color: #aaa;
-    }
-
-    .back-icon i {
-      margin-right: 5px;
     }
 
     .title {
       font-size: 24px;
       font-weight: 600;
       margin-bottom: 20px;
-      color: #ffffff;
+      color: #fff;
     }
 
     .user-details {
@@ -92,17 +71,17 @@
       height: 40px;
       padding: 0 10px;
       font-size: 14px;
-      border: 1px solid #555;
+      border: 1px solid #764ebe;
       border-radius: 5px;
-      background: #333;
+      background: #341874;
       color: #fff;
       outline: none;
       transition: 0.3s;
     }
 
     .input-box input:focus {
-      border-color: #fff;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      border-color: #a689e8;
+      box-shadow: 0 0 10px rgba(118, 78, 190, 0.6);
     }
 
     /* Gender details */
@@ -131,7 +110,7 @@
     }
 
     .category input {
-      accent-color: #fff;
+      accent-color: #764ebe;
     }
 
     /* Submit button */
@@ -140,7 +119,7 @@
     }
 
     .button input {
-      background: #333;
+      background: linear-gradient(135deg, #341874, #764ebe);
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -151,7 +130,26 @@
     }
 
     .button input:hover {
-      background: #555;
+      background: linear-gradient(135deg, #764ebe, #a689e8);
+      box-shadow: 0 8px 15px rgba(118, 78, 190, 0.6);
+    }
+
+    /* Back icon */
+    .back-icon {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #764ebe;
+      text-decoration: none;
+      z-index: 10;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .back-icon:hover {
+      color: #a689e8;
+      transform: translateX(-50%) scale(1.1);
     }
 
     /* Responsive design */
@@ -167,6 +165,10 @@
       .button input {
         padding: 10px 15px;
       }
+
+      .back-icon {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -175,10 +177,6 @@
     <source src="background-video.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-
-  <a href="home.html" class="back-icon">
-    <i>&#8592;</i> Back to Home
-  </a>
 
   <div class="container">
     <div class="title">SkillMatch Registration</div>
@@ -228,5 +226,7 @@
       </div>
     </form>
   </div>
+
+  <a href="home.html" class="back-icon">&#x21A9;</a>
 </body>
 </html>
