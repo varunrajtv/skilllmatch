@@ -8,65 +8,83 @@
     /* General styles */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #a8ff78, #78ffd6);
+      margin: 0;
+      padding: 0;
+      background: #000; /* Fallback for video */
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      margin: 0;
+      height: 100vh;
+      overflow: hidden;
     }
 
+    /* Background video */
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.3);
+    }
+
+    /* Container styles */
     .container {
-      background: #ffffff;
+      background: rgba(0, 0, 0, 0.85);
       width: 100%;
       max-width: 400px;
       border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
       overflow: hidden;
-      padding: 20px 30px;
-      animation: fadeIn 1s ease-in-out;
+      padding: 30px 20px;
+      text-align: center;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Back icon */
+    .back-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s;
+    }
+
+    .back-icon:hover {
+      color: #aaa;
+    }
+
+    .back-icon i {
+      margin-right: 5px;
     }
 
     .title {
       font-size: 24px;
-      font-weight: 700;
-      text-align: center;
+      font-weight: 600;
       margin-bottom: 20px;
-      color: #6a0dad;
-    }
-
-    /* Form content */
-    .content {
-      width: 100%;
+      color: #ffffff;
     }
 
     .user-details {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .input-box {
-      margin-bottom: 15px;
       width: 100%;
     }
 
     .input-box .details {
-      font-weight: 500;
       font-size: 14px;
       margin-bottom: 5px;
-      display: block;
+      text-align: left;
     }
 
     .input-box input {
@@ -74,76 +92,72 @@
       height: 40px;
       padding: 0 10px;
       font-size: 14px;
-      border: 2px solid #ccc;
+      border: 1px solid #555;
       border-radius: 5px;
+      background: #333;
+      color: #fff;
       outline: none;
-      transition: all 0.3s ease-in-out;
+      transition: 0.3s;
     }
 
     .input-box input:focus {
-      border-color: #6a0dad;
-      box-shadow: 0 0 10px rgba(106, 13, 173, 0.2);
+      border-color: #fff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     /* Gender details */
     .gender-details {
       margin: 20px 0;
+      text-align: left;
     }
 
     .gender-title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
-      color: #333;
     }
 
     .category {
       display: flex;
-      justify-content: space-between;
+      gap: 10px;
       margin-top: 10px;
     }
 
     .category label {
+      font-size: 14px;
       display: flex;
       align-items: center;
-      font-size: 14px;
-      color: #555;
+      gap: 5px;
       cursor: pointer;
-      transition: color 0.3s ease-in-out;
     }
 
     .category input {
-      margin-right: 5px;
-    }
-
-    .category label:hover {
-      color: #6a0dad;
+      accent-color: #fff;
     }
 
     /* Submit button */
     .button {
-      text-align: center;
+      margin-top: 20px;
     }
 
     .button input {
-      background: linear-gradient(135deg, #6a0dad, #a084ca);
+      background: #333;
       color: #fff;
       border: none;
       padding: 10px 20px;
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
+      transition: 0.3s;
     }
 
     .button input:hover {
-      background: linear-gradient(135deg, #a084ca, #6a0dad);
-      box-shadow: 0 8px 15px rgba(106, 13, 173, 0.4);
+      background: #555;
     }
 
     /* Responsive design */
     @media (max-width: 768px) {
       .container {
-        padding: 15px 20px;
+        padding: 20px 15px;
       }
 
       .title {
@@ -157,58 +171,62 @@
   </style>
 </head>
 <body>
+  <video autoplay muted loop>
+    <source src="background-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <a href="home.html" class="back-icon">
+    <i>&#8592;</i> Back to Home
+  </a>
+
   <div class="container">
     <div class="title">SkillMatch Registration</div>
-    <div class="content">
-      <form action="#" method="POST">
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">Full Name</span>
-            <input type="text" name="full_name" placeholder="Enter your full name" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" name="username" placeholder="Choose a username" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Email</span>
-            <input type="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input type="tel" name="phone" placeholder="Enter your phone number" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="password" name="password" placeholder="Create a password" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="password" name="confirm_password" placeholder="Confirm your password" required>
-          </div>
+    <form action="#" method="POST">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Full Name</span>
+          <input type="text" name="full_name" placeholder="Enter your full name" required>
         </div>
-        <div class="gender-details">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label>
-              <input type="radio" name="gender" value="male" required>
-              <span class="gender">Male</span>
-            </label>
-            <label>
-              <input type="radio" name="gender" value="female" required>
-              <span class="gender">Female</span>
-            </label>
-            <label>
-              <input type="radio" name="gender" value="prefer_not_to_say" required>
-              <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
+        <div class="input-box">
+          <span class="details">Username</span>
+          <input type="text" name="username" placeholder="Choose a username" required>
         </div>
-        <div class="button">
-          <input type="submit" value="Register">
+        <div class="input-box">
+          <span class="details">Email</span>
+          <input type="email" name="email" placeholder="Enter your email" required>
         </div>
-      </form>
-    </div>
+        <div class="input-box">
+          <span class="details">Phone Number</span>
+          <input type="tel" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Password</span>
+          <input type="password" name="password" placeholder="Create a password" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Confirm Password</span>
+          <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+        </div>
+      </div>
+      <div class="gender-details">
+        <span class="gender-title">Gender</span>
+        <div class="category">
+          <label>
+            <input type="radio" name="gender" value="male" required> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="female" required> Female
+          </label>
+          <label>
+            <input type="radio" name="gender" value="prefer_not_to_say" required> Prefer not to say
+          </label>
+        </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="Register">
+      </div>
+    </form>
   </div>
 </body>
 </html>
