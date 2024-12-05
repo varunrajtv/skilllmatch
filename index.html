@@ -8,7 +8,7 @@
     /* General styles */
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f4f4f9;
+      background: linear-gradient(135deg, #a8ff78, #78ffd6);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,19 +18,32 @@
 
     .container {
       background: #ffffff;
-      width: 400px;
+      width: 100%;
+      max-width: 400px;
       border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       overflow: hidden;
       padding: 20px 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .title {
       font-size: 24px;
-      font-weight: 600;
+      font-weight: 700;
       text-align: center;
       margin-bottom: 20px;
-      color: #333;
+      color: #6a0dad;
     }
 
     /* Form content */
@@ -61,14 +74,15 @@
       height: 40px;
       padding: 0 10px;
       font-size: 14px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 5px;
       outline: none;
-      transition: 0.3s;
+      transition: all 0.3s ease-in-out;
     }
 
     .input-box input:focus {
-      border-color: #007bff;
+      border-color: #6a0dad;
+      box-shadow: 0 0 10px rgba(106, 13, 173, 0.2);
     }
 
     /* Gender details */
@@ -78,7 +92,7 @@
 
     .gender-title {
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 600;
       color: #333;
     }
 
@@ -94,10 +108,15 @@
       font-size: 14px;
       color: #555;
       cursor: pointer;
+      transition: color 0.3s ease-in-out;
     }
 
     .category input {
       margin-right: 5px;
+    }
+
+    .category label:hover {
+      color: #6a0dad;
     }
 
     /* Submit button */
@@ -106,18 +125,34 @@
     }
 
     .button input {
-      background: #007bff;
+      background: linear-gradient(135deg, #6a0dad, #a084ca);
       color: #fff;
       border: none;
       padding: 10px 20px;
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease-in-out;
     }
 
     .button input:hover {
-      background: #0056b3;
+      background: linear-gradient(135deg, #a084ca, #6a0dad);
+      box-shadow: 0 8px 15px rgba(106, 13, 173, 0.4);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px 20px;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+
+      .button input {
+        padding: 10px 15px;
+      }
     }
   </style>
 </head>
@@ -177,4 +212,3 @@
   </div>
 </body>
 </html>
-
