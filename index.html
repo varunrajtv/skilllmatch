@@ -1,232 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillMatch - Registration</title>
-  <style>
-    /* General styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #341874, #512da8);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Match - Connect to Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-    /* Background video */
-    video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.25);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-    /* Container styles */
-    .container {
-      background: rgba(81, 45, 168, 0.9); /* Transparent purple box */
-      width: 100%;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-      padding: 30px 20px;
-      text-align: center;
-    }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
 
-    .title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #fff;
-    }
+        header {
+            background: linear-gradient(to right, #512da8, #5c6bc0);
+            color: #fff;
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
 
-    .user-details {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-    .input-box {
-      width: 100%;
-    }
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
 
-    .input-box .details {
-      font-size: 14px;
-      margin-bottom: 5px;
-      text-align: left;
-    }
+        header nav ul li {
+            display: inline;
+        }
 
-    .input-box input {
-      width: 100%;
-      height: 40px;
-      padding: 0 10px;
-      font-size: 14px;
-      border: 1px solid #764ebe;
-      border-radius: 5px;
-      background: #341874;
-      color: #fff;
-      outline: none;
-      transition: 0.3s;
-    }
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
 
-    .input-box input:focus {
-      border-color: #a689e8;
-      box-shadow: 0 0 10px rgba(118, 78, 190, 0.6);
-    }
+        header nav ul li a:hover {
+            color: #f9f9f9;
+        }
 
-    /* Gender details */
-    .gender-details {
-      margin: 20px 0;
-      text-align: left;
-    }
+        .hero {
+            background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+            width: 100%;
+            text-align: center;
+            padding: 60px 20px;
+        }
 
-    .gender-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
 
-    .category {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
 
-    .category label {
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      cursor: pointer;
-    }
+        .hero button {
+            background-color: #512da8;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
-    .category input {
-      accent-color: #764ebe;
-    }
+        .hero button:hover {
+            background-color: #5c6bc0;
+        }
 
-    /* Submit button */
-    .button {
-      margin-top: 20px;
-    }
+        .categories {
+            width: 100%;
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
-    .button input {
-      background: linear-gradient(135deg, #341874, #764ebe);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        .category-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
 
-    .button input:hover {
-      background: linear-gradient(135deg, #764ebe, #a689e8);
-      box-shadow: 0 8px 15px rgba(118, 78, 190, 0.6);
-    }
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
 
-    /* Back icon */
-    .back-icon {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 24px;
-      color: #764ebe;
-      text-decoration: none;
-      z-index: 10;
-      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
+        .category-card i {
+            font-size: 2.5rem;
+            color: #512da8;
+            margin-bottom: 15px;
+        }
 
-    .back-icon:hover {
-      color: #a689e8;
-      transform: translateX(-50%) scale(1.1);
-    }
+        .category-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px 15px;
-      }
+        .category-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
 
-      .title {
-        font-size: 20px;
-      }
+        footer.footer-badge {
+            background: linear-gradient(to right, #5c6bc0, #512da8);
+            color: #fff;
+            text-align: center;
+            padding: 15px 30px;
+            margin: 30px auto;
+            border-radius: 25px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-      .button input {
-        padding: 10px 15px;
-      }
+        footer.footer-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
 
-      .back-icon {
-        font-size: 20px;
-      }
-    }
-  </style>
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .categories {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <video autoplay muted loop>
-    <source src="background-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+    <header>
+        <div class="logo">Skill Match</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="container">
-    <div class="title">SkillMatch Registration</div>
-    <form action="#" method="POST">
-      <div class="user-details">
-        <div class="input-box">
-          <span class="details">Full Name</span>
-          <input type="text" name="full_name" placeholder="Enter your full name" required>
-        </div>
-        <div class="input-box">
-          <span class="details">Username</span>
-          <input type="text" name="username" placeholder="Choose a username" required>
-        </div>
-        <div class="input-box">
-          <span class="details">Email</span>
-          <input type="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="input-box">
-          <span class="details">Phone Number</span>
-          <input type="tel" name="phone" placeholder="Enter your phone number" required>
-        </div>
-        <div class="input-box">
-          <span class="details">Password</span>
-          <input type="password" name="password" placeholder="Create a password" required>
-        </div>
-        <div class="input-box">
-          <span class="details">Confirm Password</span>
-          <input type="password" name="confirm_password" placeholder="Confirm your password" required>
-        </div>
-      </div>
-      <div class="gender-details">
-        <span class="gender-title">Gender</span>
-        <div class="category">
-          <label>
-            <input type="radio" name="gender" value="male" required> Male
-          </label>
-          <label>
-            <input type="radio" name="gender" value="female" required> Female
-          </label>
-          <label>
-            <input type="radio" name="gender" value="prefer_not_to_say" required> Prefer not to say
-          </label>
-        </div>
-      </div>
-      <div class="button">
-        <input type="submit" value="Register">
-      </div>
-    </form>
-  </div>
+    <section class="hero">
+        <h1>Find the Right Services, Instantly</h1>
+        <p>Skill Match connects you to trusted professionals and businesses in your area. Whether you need repairs, consultations, or services, we've got you covered.</p>
+        <button>Get Started</button>
+    </section>
 
-  <a href="home.html" class="back-icon">&#x21A9;</a>
+    <section class="categories">
+        <div class="category-card">
+            <i class="fa-solid fa-hammer"></i>
+            <h3>Home Services</h3>
+            <p>Plumbing, electrical work, and more at your fingertips.</p>
+        </div>
+        <div class="category-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>IT Solutions</h3>
+            <p>Connect with top developers and tech experts.</p>
+        </div>
+        <div class="category-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Business Services</h3>
+            <p>Legal, accounting, and consultation services made easy.</p>
+        </div>
+        <div class="category-card">
+            <i class="fa-solid fa-heart"></i>
+            <h3>Health & Wellness</h3>
+            <p>Find fitness trainers, therapists, and more.</p>
+        </div>
+        <div class="category-card">
+            <i class="fa-solid fa-paint-brush"></i>
+            <h3>Creative Professionals</h3>
+            <p>Photographers, designers, and artists at your service.</p>
+        </div>
+        <div class="category-card">
+            <i class="fa-solid fa-truck"></i>
+            <h3>Moving Services</h3>
+            <p>Reliable movers and packers for your convenience.</p>
+        </div>
+    </section>
+
+    <footer class="footer-badge">
+        <p>&copy; 2024 Skill Match. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
