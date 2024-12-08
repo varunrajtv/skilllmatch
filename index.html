@@ -158,6 +158,43 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* Popup Styling */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .popup h3 {
+            margin-bottom: 15px;
+        }
+
+        .popup button {
+            background-color: #512da8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .popup button:hover {
+            background-color: #5c6bc0;
+        }
+
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             header nav ul {
@@ -185,9 +222,9 @@
         <div class="logo">Skill Match</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -196,45 +233,123 @@
     <section class="hero">
         <h1>Find the Right Services, Instantly</h1>
         <p>Skill Match connects you to trusted professionals and businesses in your area. Whether you need repairs, consultations, or services, we've got you covered.</p>
-        <button>Get Started</button>
+        <button onclick="window.location.href='code ezhuthikondirikunnu'">Get Started</button>
+
     </section>
 
     <section class="categories">
-        <div class="category-card">
-            <i class="fa-solid fa-hammer"></i>
-            <h3>Home Services</h3>
-            <p>Plumbing, electrical work, and more at your fingertips.</p>
-        </div>
-        <div class="category-card">
-            <i class="fa-solid fa-code"></i>
-            <h3>IT Solutions</h3>
-            <p>Connect with top developers and tech experts.</p>
-        </div>
-        <div class="category-card">
-            <i class="fa-solid fa-briefcase"></i>
-            <h3>Business Services</h3>
-            <p>Legal, accounting, and consultation services made easy.</p>
-        </div>
-        <div class="category-card">
-            <i class="fa-solid fa-heart"></i>
-            <h3>Health & Wellness</h3>
-            <p>Find fitness trainers, therapists, and more.</p>
-        </div>
-        <div class="category-card">
-            <i class="fa-solid fa-paint-brush"></i>
-            <h3>Creative Professionals</h3>
-            <p>Photographers, designers, and artists at your service.</p>
-        </div>
-        <div class="category-card">
-            <i class="fa-solid fa-truck"></i>
-            <h3>Moving Services</h3>
-            <p>Reliable movers and packers for your convenience.</p>
-        </div>
+        <div class="categories">
+            <!-- Electrician -->
+            <div class="category-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Electrician</h3>
+                <p>Connect with skilled electricians for your home or business needs.</p>
+            </div>
+        
+            <!-- Plumber -->
+            <div class="category-card">
+                <i class="fa-solid fa-water"></i>
+                <h3>Plumber</h3>
+                <p>Expert plumbing services for all your water needs.</p>
+            </div>
+        
+            <!-- AC Service -->
+            <div class="category-card">
+                <i class="fa-solid fa-snowflake"></i>
+                <h3>AC Service</h3>
+                <p>Fast and efficient air conditioning services for every season.</p>
+            </div>
+        
+            <!-- Home Deep Cleaning -->
+            <div class="category-card">
+                <i class="fa-solid fa-broom"></i>
+                <h3>Home Deep Cleaning</h3>
+                <p>Professional cleaning for a spotless, fresh start.</p>
+            </div>
+        
+            <!-- Dog Walker -->
+            <div class="category-card">
+                <i class="fa-solid fa-paw"></i>
+                <h3>Dog Walker</h3>
+                <p>Keep your furry friend happy with trusted dog walking services.</p>
+            </div>
+        
+            <!-- Driver -->
+            <div class="category-card">
+                <i class="fa-solid fa-car"></i>
+                <h3>Driver</h3>
+                <p>Safe and reliable transportation whenever you need it.</p>
+            </div>
+        
+            <!-- Beautician -->
+            <div class="category-card">
+                <i class="fa-solid fa-magic"></i>
+                <h3>Beautician</h3>
+                <p>Enhance your beauty with professional beauty services.</p>
+            </div>
+        
+            <!-- Lumber Jack -->
+            <div class="category-card">
+                <i class="fa-solid fa-tree"></i>
+                <h3>Lumber Jack</h3>
+                <p>Expert tree cutting and wood services for your needs.</p>
+            </div>
+        
+            <!-- Lawn Care Technician -->
+            <div class="category-card">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>Lawn Care Technician</h3>
+                <p>Keep your lawn healthy and beautiful with professional service.</p>
+            </div>
+        
+            <!-- Well Digger -->
+            <div class="category-card">
+                <i class="fa-solid fa-water"></i>
+                <h3>Well Digger</h3>
+                <p>Reliable well drilling and water supply services.</p>
+            </div>
+        
+            <!-- Plant Keeper -->
+            <div class="category-card">
+                <i class="fa-solid fa-seedling"></i>
+                <h3>Plant Keeper</h3>
+                <p>Expert plant care services to maintain your greenery.</p>
+            </div>
+        
+            <!-- Welder -->
+            <div class="category-card">
+                <i class="fa-solid fa-tools"></i>
+                <h3>Welder</h3>
+                <p>Quality welding services for construction, repairs, and more.</p>
+            </div>
+        </div>        
     </section>
 
     <footer class="footer-badge">
         <p>&copy; 2024 Skill Match. All rights reserved.</p>
     </footer>
+
+    <div class="popup" id="popup">
+        <h3>Do you want to register?</h3>
+        <button onclick="registerNow()">Yes</button>
+        <button onclick="closePopup()">No</button>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function registerNow() {
+            window.location.href = "under maintainance"; // Replace "#" with the registration page URL
+        }
+
+        setTimeout(showPopup, 10000); // Show the popup after 10 seconds
+    </script>
 </body>
 
 </html>
